@@ -10,6 +10,9 @@
 		78A3BAB8223478E100FA7600 /* RealmDAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 78A3BAB6223478E100FA7600 /* RealmDAO.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78A3BAC122347B1100FA7600 /* GenericDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A3BAC022347B1100FA7600 /* GenericDAO.swift */; };
 		78A3BAC322347B9300FA7600 /* GenericDAOImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A3BAC222347B9300FA7600 /* GenericDAOImpl.swift */; };
+		78A3BAC622347CE000FA7600 /* SwiftyBeaverExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A3BAC522347CE000FA7600 /* SwiftyBeaverExtension.swift */; };
+		78A3BACA22347D2000FA7600 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78A3BAC822347D2000FA7600 /* RealmSwift.framework */; };
+		78A3BACB22347D2000FA7600 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78A3BAC922347D2000FA7600 /* Realm.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +21,9 @@
 		78A3BAB7223478E100FA7600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78A3BAC022347B1100FA7600 /* GenericDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDAO.swift; sourceTree = "<group>"; };
 		78A3BAC222347B9300FA7600 /* GenericDAOImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDAOImpl.swift; sourceTree = "<group>"; };
+		78A3BAC522347CE000FA7600 /* SwiftyBeaverExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaverExtension.swift; sourceTree = "<group>"; };
+		78A3BAC822347D2000FA7600 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		78A3BAC922347D2000FA7600 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,6 +31,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78A3BACA22347D2000FA7600 /* RealmSwift.framework in Frameworks */,
+				78A3BACB22347D2000FA7600 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,6 +44,7 @@
 			children = (
 				78A3BAB5223478E100FA7600 /* RealmDAO */,
 				78A3BAB4223478E100FA7600 /* Products */,
+				78A3BAC722347D2000FA7600 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -50,6 +59,7 @@
 		78A3BAB5223478E100FA7600 /* RealmDAO */ = {
 			isa = PBXGroup;
 			children = (
+				78A3BAC422347CB200FA7600 /* LoggerSetup */,
 				78A3BABF22347B0100FA7600 /* Implementations */,
 				78A3BABE22347AED00FA7600 /* Protocols */,
 				78A3BAB6223478E100FA7600 /* RealmDAO.h */,
@@ -72,6 +82,23 @@
 				78A3BAC222347B9300FA7600 /* GenericDAOImpl.swift */,
 			);
 			path = Implementations;
+			sourceTree = "<group>";
+		};
+		78A3BAC422347CB200FA7600 /* LoggerSetup */ = {
+			isa = PBXGroup;
+			children = (
+				78A3BAC522347CE000FA7600 /* SwiftyBeaverExtension.swift */,
+			);
+			path = LoggerSetup;
+			sourceTree = "<group>";
+		};
+		78A3BAC722347D2000FA7600 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78A3BAC922347D2000FA7600 /* Realm.framework */,
+				78A3BAC822347D2000FA7600 /* RealmSwift.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +182,7 @@
 			files = (
 				78A3BAC322347B9300FA7600 /* GenericDAOImpl.swift in Sources */,
 				78A3BAC122347B1100FA7600 /* GenericDAO.swift in Sources */,
+				78A3BAC622347CE000FA7600 /* SwiftyBeaverExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +322,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RealmDAO/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -321,6 +353,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RealmDAO/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
