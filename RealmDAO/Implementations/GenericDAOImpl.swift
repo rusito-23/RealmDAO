@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class GenericDAOImpl <T> : GenericDAO where T:Object, T:Structable {
+public class GenericDAOImpl <T> : GenericDAO where T:Object, T:Structable {
   
   //  MARK: setup
   let background = { (block: @escaping () -> ()) in
@@ -18,7 +18,7 @@ class GenericDAOImpl <T> : GenericDAO where T:Object, T:Structable {
   
   //   MARK: protocol implementation
   
-  func save(_ object: T, completion: @escaping (_ : Bool) -> () ) {
+  public func save(_ object: T, completion: @escaping (_ : Bool) -> () ) {
     background {
       do {
         let realm = try! Realm()
@@ -32,7 +32,7 @@ class GenericDAOImpl <T> : GenericDAO where T:Object, T:Structable {
     }
   }
   
-  func saveAll(_ objects: [T], completion: @escaping (_ : Int) -> () ){
+  public func saveAll(_ objects: [T], completion: @escaping (_ : Int) -> () ){
     background {
       var count = 0
       guard let realm = try? Realm() else { completion(count); return }
@@ -56,21 +56,21 @@ class GenericDAOImpl <T> : GenericDAO where T:Object, T:Structable {
     return nil
   }
   
-  func findAll(completion: @escaping ([T.S]) -> () ) {
+  public func findAll(completion: @escaping ([T.S]) -> () ) {
     background {
       guard let res = self.findAllResults() else { completion([]); return }
       completion(Array(res).map {$0.toStruct()} )
     }
   }
   
-  func findByPrimaryKey(_ id: Any, completion: @escaping (T.S?) -> () ){
+  public func findByPrimaryKey(_ id: Any, completion: @escaping (T.S?) -> () ){
     background{
       let realm = try? Realm()
       completion(realm?.object(ofType: T.self, forPrimaryKey: id)?.toStruct())
     }
   }
   
-  func deleteAll(completion: @escaping (_ : Bool) -> () ) {
+  public func deleteAll(completion: @escaping (_ : Bool) -> () ) {
     background {
       guard let res = self.findAllResults(),
         let realm = try? Realm() else {
@@ -91,7 +91,7 @@ class GenericDAOImpl <T> : GenericDAO where T:Object, T:Structable {
     }
   }
   
-  func resolve(_ ref : ThreadSafeReference<T>) -> T? {
+  public func resolve(_ ref : ThreadSafeReference<T>) -> T? {
     let realm = try! Realm()
     return realm.resolve(ref)
   }

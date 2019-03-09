@@ -10,12 +10,12 @@ import Foundation
 import RealmSwift
 
 
-protocol Structable {
+public protocol Structable {
   associatedtype S
   func toStruct() -> S
 }
 
-protocol GenericDAO {
+public protocol GenericDAO {
   associatedtype T: Object, Structable
   associatedtype S = T.S
   
