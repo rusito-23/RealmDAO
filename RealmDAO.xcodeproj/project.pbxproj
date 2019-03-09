@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		78A3BAB8223478E100FA7600 /* RealmDAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 78A3BAB6223478E100FA7600 /* RealmDAO.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78A3BAC122347B1100FA7600 /* GenericDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A3BAC022347B1100FA7600 /* GenericDAO.swift */; };
+		78A3BAC322347B9300FA7600 /* GenericDAOImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A3BAC222347B9300FA7600 /* GenericDAOImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		78A3BAB3223478E100FA7600 /* RealmDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RealmDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78A3BAB6223478E100FA7600 /* RealmDAO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RealmDAO.h; sourceTree = "<group>"; };
 		78A3BAB7223478E100FA7600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78A3BAC022347B1100FA7600 /* GenericDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDAO.swift; sourceTree = "<group>"; };
+		78A3BAC222347B9300FA7600 /* GenericDAOImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDAOImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +50,28 @@
 		78A3BAB5223478E100FA7600 /* RealmDAO */ = {
 			isa = PBXGroup;
 			children = (
+				78A3BABF22347B0100FA7600 /* Implementations */,
+				78A3BABE22347AED00FA7600 /* Protocols */,
 				78A3BAB6223478E100FA7600 /* RealmDAO.h */,
 				78A3BAB7223478E100FA7600 /* Info.plist */,
 			);
 			path = RealmDAO;
+			sourceTree = "<group>";
+		};
+		78A3BABE22347AED00FA7600 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				78A3BAC022347B1100FA7600 /* GenericDAO.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		78A3BABF22347B0100FA7600 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				78A3BAC222347B9300FA7600 /* GenericDAOImpl.swift */,
+			);
+			path = Implementations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +117,7 @@
 				TargetAttributes = {
 					78A3BAB2223478E100FA7600 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -130,6 +153,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78A3BAC322347B9300FA7600 /* GenericDAOImpl.swift in Sources */,
+				78A3BAC122347B1100FA7600 /* GenericDAO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +286,7 @@
 		78A3BABC223478E100FA7600 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -278,6 +304,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rusito23.RealmDAO;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -286,6 +313,7 @@
 		78A3BABD223478E100FA7600 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
