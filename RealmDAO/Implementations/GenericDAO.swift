@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-public class GenericDAOImpl <T> : GenericDAO where T:Object, T:Structable {
+public class GenericDAO <T> : GenericDAOProtocol where T:Object, T:Transferrable {
   
   //  MARK: setup
   let background = { (block: @escaping () -> ()) in
@@ -59,14 +59,14 @@ public class GenericDAOImpl <T> : GenericDAO where T:Object, T:Structable {
   public func findAll(completion: @escaping ([T.S]) -> () ) {
     background {
       guard let res = self.findAllResults() else { completion([]); return }
-      completion(Array(res).map {$0.toStruct()} )
+      completion(Array(res).map {$0.transfer()} )
     }
   }
   
   public func findByPrimaryKey(_ id: Any, completion: @escaping (T.S?) -> () ){
     background{
       let realm = try? Realm()
-      completion(realm?.object(ofType: T.self, forPrimaryKey: id)?.toStruct())
+      completion(realm?.object(ofType: T.self, forPrimaryKey: id)?.transfer())
     }
   }
   

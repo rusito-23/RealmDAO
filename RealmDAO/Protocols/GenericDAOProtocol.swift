@@ -10,13 +10,8 @@ import Foundation
 import RealmSwift
 
 
-public protocol Structable {
-  associatedtype S
-  func toStruct() -> S
-}
-
-public protocol GenericDAO {
-  associatedtype T: Object, Structable
+public protocol GenericDAOProtocol {
+  associatedtype T: Object, Transferrable
   associatedtype S = T.S
   
   func save(_ object: T, completion: @escaping (_ : Bool) -> () )
