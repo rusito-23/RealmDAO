@@ -16,6 +16,8 @@ public class GenericDAO <T> : GenericDAOProtocol where T:Object, T:Transferrable
     DispatchQueue.global(qos: .background).async (execute: block)
   }
   
+  public init() { }
+  
   //   MARK: protocol implementation
   
   public func save(_ object: T, completion: @escaping (_ : Bool) -> () ) {
