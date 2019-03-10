@@ -5,7 +5,9 @@
 This framework provides a DAO extra layer to use Realm in iOS development with Swift.
 The main objective is to have basic transactions available for every Realm Object created in your project, without the need to re-write the code every time.
 
-### Object creation
+
+### Object creation
+
 First, we need to understand the Transferrable protocol:
 
 ``` swift
