@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7823675E22348F1D002B3DC9 /* Transferrable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7823675D22348F1D002B3DC9 /* Transferrable.swift */; };
+		7880A87C2235D1B400EA0503 /* AutoincrementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7880A87B2235D1B400EA0503 /* AutoincrementProtocol.swift */; };
 		78A3BAB8223478E100FA7600 /* RealmDAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 78A3BAB6223478E100FA7600 /* RealmDAO.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78A3BAC122347B1100FA7600 /* GenericDAOProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A3BAC022347B1100FA7600 /* GenericDAOProtocol.swift */; };
 		78A3BAC322347B9300FA7600 /* GenericDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A3BAC222347B9300FA7600 /* GenericDAO.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		7823675D22348F1D002B3DC9 /* Transferrable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transferrable.swift; sourceTree = "<group>"; };
+		7880A87B2235D1B400EA0503 /* AutoincrementProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoincrementProtocol.swift; sourceTree = "<group>"; };
 		78A3BAB3223478E100FA7600 /* RealmDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RealmDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78A3BAB6223478E100FA7600 /* RealmDAO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RealmDAO.h; sourceTree = "<group>"; };
 		78A3BAB7223478E100FA7600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			children = (
 				78A3BAC022347B1100FA7600 /* GenericDAOProtocol.swift */,
 				7823675D22348F1D002B3DC9 /* Transferrable.swift */,
+				7880A87B2235D1B400EA0503 /* AutoincrementProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7880A87C2235D1B400EA0503 /* AutoincrementProtocol.swift in Sources */,
 				78A3BAC322347B9300FA7600 /* GenericDAO.swift in Sources */,
 				7823675E22348F1D002B3DC9 /* Transferrable.swift in Sources */,
 				78A3BAC122347B1100FA7600 /* GenericDAOProtocol.swift in Sources */,

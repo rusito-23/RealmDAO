@@ -34,7 +34,7 @@ open class GenericDAO <T> : GenericDAOProtocol where T:Object, T:Transferrable {
     }
   }
   
-  open func saveAutoincrement(_ object: T, completion: @escaping (Bool) -> ()) {
+  open func saveAutoincrement<T>(_ object: T, completion: @escaping (Bool) -> ()) where T:Object, T:Transferrable, T:Autoincrement {
     background {
       guard let realm = try? Realm() else {
         completion(false)

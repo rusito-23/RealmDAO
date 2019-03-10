@@ -16,7 +16,7 @@ public protocol GenericDAOProtocol {
   
   func save(_ object: T, completion: @escaping (_ : Bool) -> () )
   
-  func saveAutoincrement(_ object: T, completion: @escaping (_ : Bool) -> () )
+  func saveAutoincrement<T>(_ object: T, completion: @escaping (Bool) -> ()) where T:Object, T:Transferrable, T:Autoincrement
 
   func saveAll(_ objects: [T], completion: @escaping (_ : Int) -> () )
   
