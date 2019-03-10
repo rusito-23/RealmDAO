@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-public class GenericDAO <T> : GenericDAOProtocol where T:Object, T:Transferrable {
+open class GenericDAO <T> : GenericDAOProtocol where T:Object, T:Transferrable {
   
   //  MARK: setup
   let background = { (block: @escaping () -> ()) in
