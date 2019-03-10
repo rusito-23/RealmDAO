@@ -34,6 +34,29 @@ open class GenericDAO <T> : GenericDAOProtocol where T:Object, T:Transferrable {
     }
   }
   
+  open func saveAutoincrement(_ object: T, completion: @escaping (Bool) -> ()) {
+    background {
+      guard let realm = try? Realm() else {
+        completion(false)
+        return
+      }
+      
+      do {
+        let maxID = (realm.objects(T.self).max(ofProperty: "id") as Int? ?? 0) + 1
+        object.setValue(maxID, forKey: "id")
+
+        try realm.write {
+          realm.add(object)
+        }
+      } catch {
+        completion(false)
+        return
+      }
+      
+      completion(true)
+    }
+  }
+
   open func saveAll(_ objects: [T], completion: @escaping (_ : Int) -> () ){
     background {
       var count = 0
