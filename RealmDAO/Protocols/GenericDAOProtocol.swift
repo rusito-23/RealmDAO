@@ -1,5 +1,5 @@
 //
-//  GenericDAO.swift
+//  GenericDAOProtocol.swift
 //  RealmDAO
 //
 //  Created by Igor on 09/03/2019.
