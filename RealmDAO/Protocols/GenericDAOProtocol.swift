@@ -26,7 +26,7 @@ public protocol GenericDAOProtocol {
   
   func findByPrimaryKey(_ id: Any, completion: @escaping (_ : S?) -> () )
   
-  func updateByPrimaryKey(_ id: Any, completion: @escaping (Bool) -> () )
+  func updateByPrimaryKey(_ new: T, completion: @escaping (Bool) -> () )
   
   func deleteAll(completion: @escaping (_ : Bool) -> ())
   

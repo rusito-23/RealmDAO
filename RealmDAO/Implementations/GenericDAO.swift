@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 open class GenericDAO <T> : GenericDAOProtocol where T:Object, T:Transferrable {
-  
+
   //  MARK: setup
   let background = { (block: @escaping () -> ()) in
     DispatchQueue.global(qos: .background).async (execute: block)
