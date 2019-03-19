@@ -14,6 +14,8 @@ public protocol GenericDAOProtocol {
   associatedtype T: Object, Transferrable
   associatedtype S = T.S
   
+  var realm: Realm? { get }
+
   func save(_ object: T, completion: @escaping (_ : Bool) -> () )
   
   func saveAutoincrement<T>(_ object: T, completion: @escaping (Bool) -> ()) where T:Object, T:Transferrable, T:Autoincrement
@@ -23,6 +25,8 @@ public protocol GenericDAOProtocol {
   func findAll(completion: @escaping (_ : [S]) -> () )
   
   func findByPrimaryKey(_ id: Any, completion: @escaping (_ : S?) -> () )
+  
+  func updateByPrimaryKey(_ id: Any, completion: @escaping (Bool) -> () )
   
   func deleteAll(completion: @escaping (_ : Bool) -> ())
   
