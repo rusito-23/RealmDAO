@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 open class GenericDAO <T> : GenericDAOProtocol where T:Object, T:Transferrable {
-  
+
   //  MARK: setup
   let background = { (block: @escaping () -> ()) in
     DispatchQueue.global(qos: .background).async (execute: block)
@@ -19,6 +19,12 @@ open class GenericDAO <T> : GenericDAOProtocol where T:Object, T:Transferrable {
   public init() { }
 
   //   MARK: protocol implementation
+  
+  public var realm: Realm? {
+    get {
+      return try? Realm()
+    }
+  }
   
   open func save(_ object: T, completion: @escaping (_ : Bool) -> () ) {
     background {
@@ -34,48 +40,105 @@ open class GenericDAO <T> : GenericDAOProtocol where T:Object, T:Transferrable {
     }
   }
   
+  open func saveAutoincrement<T>(_ object: T, completion: @escaping (Bool) -> ()) where T:Object, T:Transferrable, T:Autoincrement {
+    background {
+      guard let `realm` = self.realm else {
+        completion(false)
+        return
+      }
+      
+      do {
+        let maxID = (realm.objects(T.self).max(ofProperty: "id") as Int? ?? 0) + 1
+        object.setValue(maxID, forKey: "id")
+
+        try realm.write {
+          realm.add(object)
+        }
+      } catch {
+        completion(false)
+        return
+      }
+      
+      completion(true)
+    }
+  }
+
   open func saveAll(_ objects: [T], completion: @escaping (_ : Int) -> () ){
     background {
       var count = 0
-      guard let realm = try? Realm() else { completion(count); return }
+      guard let `realm` = self.realm else { completion(count); return }
       for obj in objects {
         do {
           try realm.write {
+            // for every object added, increment counter
             realm.add(obj)
             count += 1
           }
         } catch {
         }
       }
+      // send counter to completion
       completion(count)
     }
   }
   
   private func findAllResults() -> Results<T>? {
-    if let realm = try? Realm() {
-      return realm.objects(T.self)
-    }
-    return nil
+    return realm?.objects(T.self)
   }
   
   open func findAll(completion: @escaping ([T.S]) -> () ) {
     background {
+      // parse the Realm Results into array
       guard let res = self.findAllResults() else { completion([]); return }
       completion(Array(res).map {$0.transfer()} )
     }
   }
   
   open func findByPrimaryKey(_ id: Any, completion: @escaping (T.S?) -> () ){
-    background{
-      let realm = try? Realm()
-      completion(realm?.object(ofType: T.self, forPrimaryKey: id)?.transfer())
+    background {
+      completion(self.realm?.object(ofType: T.self, forPrimaryKey: id)?.transfer())
+    }
+  }
+  
+  open func updateByPrimaryKey(_ new: T, completion: @escaping (Bool) -> ()) {
+    background {
+      guard let key = T.primaryKey(), let pk = new.value(forKey: key) else {
+        logger.error("Class \(T.className()) is not compliant for Primary Key searches")
+        completion(true)
+        return
+      }
+      
+      // find old object by primary key
+      do {
+        guard let old = self.realm?.object(ofType: T.self, forPrimaryKey: pk) else {
+          completion(true)
+          return
+        }
+        
+        // overwrite the old object with the new
+        try self.realm?.write {
+          
+          for k in old.keys {
+            if k != T.primaryKey() {
+              old.setValue(new[k], forKey: k)
+            }
+          }
+
+        }
+        completion(false)
+        
+      } catch {
+        completion(true)
+        return
+      }
+
     }
   }
   
   open func deleteAll(completion: @escaping (_ : Bool) -> () ) {
     background {
       guard let res = self.findAllResults(),
-        let realm = try? Realm() else {
+        let `realm` = self.realm else {
           logger.error("No realm")
           completion(true)
           return
