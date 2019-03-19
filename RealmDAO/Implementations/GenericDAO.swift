@@ -119,7 +119,9 @@ open class GenericDAO <T> : GenericDAOProtocol where T:Object, T:Transferrable {
         try self.realm?.write {
           
           for k in old.keys {
-            old.setValue(new[k], forKey: k)
+            if k != T.primaryKey() {
+              old.setValue(new[k], forKey: k)
+            }
           }
 
         }
