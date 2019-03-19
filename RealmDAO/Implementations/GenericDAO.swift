@@ -110,14 +110,18 @@ open class GenericDAO <T> : GenericDAOProtocol where T:Object, T:Transferrable {
       
       // find old object by primary key
       do {
-        guard var old = self.realm?.object(ofType: T.self, forPrimaryKey: pk) else {
+        guard let old = self.realm?.object(ofType: T.self, forPrimaryKey: pk) else {
           completion(true)
           return
         }
         
         // overwrite the old object with the new
         try self.realm?.write {
-          old = new
+          
+          for k in old.keys {
+            old.setValue(new[k], forKey: k)
+          }
+
         }
         completion(false)
         
