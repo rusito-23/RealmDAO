@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "RealmDAO"
-  spec.version = "1.0.0"
+  spec.version = "1.2.3"
   spec.summary = "Swift framework to work with generic DAO's in Realm"
   spec.homepage = "https://github.com/rusito-23/RealmDAO"
   spec.license = { type: 'MIT', file: 'LICENSE' }
@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.platform = :ios, "12.1"
   spec.requires_arc = true
   spec.source = { git: "https://github.com/rusito-23/RealmDAO.git", tag: "v#{spec.version}", submodules: true }
-  spec.source_files = "RGB/**/*.{h,swift}"
+  spec.source_files = "RealmDAO/**/*.{h,swift}"
 
   spec.dependency "Realm"
 end
