@@ -13,4 +13,5 @@ Pod::Spec.new do |spec|
 
   spec.dependency 'Realm'
   spec.dependency 'RealmSwift'
+  spec.dependency 'SwiftyBeaver'
 end

@@ -5,4 +5,5 @@ use_frameworks!
 
 target 'RealmDAO' do
     pod 'Realm'
+    pod 'SwiftyBeaver'
 end
