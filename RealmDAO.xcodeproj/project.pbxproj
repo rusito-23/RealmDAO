@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AC7796EDE420B9119197B45 /* Pods_RealmDAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058E3F94BE8B7C20FF1081FA /* Pods_RealmDAO.framework */; };
 		7823675E22348F1D002B3DC9 /* Transferrable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7823675D22348F1D002B3DC9 /* Transferrable.swift */; };
 		7880A87C2235D1B400EA0503 /* AutoincrementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7880A87B2235D1B400EA0503 /* AutoincrementProtocol.swift */; };
 		78A3BAB8223478E100FA7600 /* RealmDAO.h in Headers */ = {isa = PBXBuildFile; fileRef = 78A3BAB6223478E100FA7600 /* RealmDAO.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		058E3F94BE8B7C20FF1081FA /* Pods_RealmDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7823675D22348F1D002B3DC9 /* Transferrable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transferrable.swift; sourceTree = "<group>"; };
 		7880A87B2235D1B400EA0503 /* AutoincrementProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoincrementProtocol.swift; sourceTree = "<group>"; };
 		78A3BAB3223478E100FA7600 /* RealmDAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RealmDAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +32,8 @@
 		78A3BAC822347D2000FA7600 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		78A3BAC922347D2000FA7600 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		9B1C854C224168FC00866F0F /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		A6834BBC42D7F67B3A04C75F /* Pods-RealmDAO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmDAO.debug.xcconfig"; path = "Target Support Files/Pods-RealmDAO/Pods-RealmDAO.debug.xcconfig"; sourceTree = "<group>"; };
+		F2291F2401CDE03B03E6201D /* Pods-RealmDAO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmDAO.release.xcconfig"; path = "Target Support Files/Pods-RealmDAO/Pods-RealmDAO.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,18 +43,30 @@
 			files = (
 				78A3BACA22347D2000FA7600 /* RealmSwift.framework in Frameworks */,
 				78A3BACB22347D2000FA7600 /* Realm.framework in Frameworks */,
+				0AC7796EDE420B9119197B45 /* Pods_RealmDAO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11D52999936E344EA13272FF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A6834BBC42D7F67B3A04C75F /* Pods-RealmDAO.debug.xcconfig */,
+				F2291F2401CDE03B03E6201D /* Pods-RealmDAO.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		78A3BAA9223478E100FA7600 = {
 			isa = PBXGroup;
 			children = (
 				78A3BAB5223478E100FA7600 /* RealmDAO */,
 				78A3BAB4223478E100FA7600 /* Products */,
 				78A3BAC722347D2000FA7600 /* Frameworks */,
+				11D52999936E344EA13272FF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +122,7 @@
 			children = (
 				78A3BAC922347D2000FA7600 /* Realm.framework */,
 				78A3BAC822347D2000FA7600 /* RealmSwift.framework */,
+				058E3F94BE8B7C20FF1081FA /* Pods_RealmDAO.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -136,6 +153,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 78A3BABB223478E100FA7600 /* Build configuration list for PBXNativeTarget "RealmDAO" */;
 			buildPhases = (
+				1CBDDA31882919482E404A24 /* [CP] Check Pods Manifest.lock */,
 				78A3BAAE223478E100FA7600 /* Headers */,
 				78A3BAAF223478E100FA7600 /* Sources */,
 				78A3BAB0223478E100FA7600 /* Frameworks */,
@@ -191,6 +209,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1CBDDA31882919482E404A24 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RealmDAO-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		78A3BAAF223478E100FA7600 /* Sources */ = {
@@ -333,6 +376,7 @@
 		};
 		78A3BABC223478E100FA7600 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6834BBC42D7F67B3A04C75F /* Pods-RealmDAO.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -365,6 +409,7 @@
 		};
 		78A3BABD223478E100FA7600 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2291F2401CDE03B03E6201D /* Pods-RealmDAO.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";

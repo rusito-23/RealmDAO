@@ -11,5 +11,6 @@ Pod::Spec.new do |spec|
   spec.source = { git: "https://github.com/rusito-23/RealmDAO.git", tag: "v#{spec.version}", submodules: true }
   spec.source_files = "RealmDAO/**/*.{h,swift}"
 
-  spec.dependency "Realm"
+  spec.dependency 'Realm'
+  spec.dependency 'RealmSwift'
 end

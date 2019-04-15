@@ -30,5 +30,6 @@ xcuserdata
 # Swift Package Manager
 .build/
 
-# Carthage
+# Carthage and Pod
 Carthage/
+Pods/
