@@ -7,6 +7,7 @@ Pod::Spec.new do |spec|
   spec.authors = { "Igor Andruskiewitsch" => 'i.andruskiewitsch23@gmail.com' }
 
   spec.platform = :ios, "12.1"
+  spec.swift_version = "4.2"
   spec.requires_arc = true
   spec.source = { git: "https://github.com/rusito-23/RealmDAO.git", tag: "v#{spec.version}", submodules: true }
   spec.source_files = "RealmDAO/**/*.{h,swift}"
